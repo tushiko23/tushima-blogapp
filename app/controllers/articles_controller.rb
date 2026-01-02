@@ -21,6 +21,20 @@ class ArticlesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to article_path(@article), notice: "記事が正常に編集されました"
+    else
+      flash.now[:error] = "編集に失敗しました"
+      render :edit, status: :unprocessable_entity
+    end
+  end
 end
 
 private

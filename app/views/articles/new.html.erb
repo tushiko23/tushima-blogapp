@@ -1,3 +1,4 @@
+<div class="container">
 <% @article.errors.full_messages.each do |message| %>
   <ul>
   <li><%= message %></li>
@@ -10,3 +11,4 @@
 <div><%= f.text_area :content %></div>
 <%= f.submit 'ボタン', class: 'btn-primary' %>
 <% end %>
+</div>
