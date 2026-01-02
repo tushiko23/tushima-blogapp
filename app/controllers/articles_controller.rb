@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to root_path, notice: "記事が正常に作成されました。"
+      redirect_to article_path(@article), notice: "記事が正常に作成されました。"
     else
       flash.now[:error] = "投稿に失敗しました"
       render :new, status: :unprocessable_entity
