@@ -1,14 +1,1 @@
-<div class="container">
-<% @article.errors.full_messages.each do |message| %>
-  <ul>
-  <li><%= message %></li>
-  </ul>
-<% end %>
-<%= form_with model: @article, url: articles_path, method: 'post', local: true do |f| %>
-<div><%= f.label :title, 'タイトル' %></div>
-<div><%= f.text_field :title %></div>
-<div><%= f.label :content, '内容' %></div>
-<div><%= f.text_area :content %></div>
-<%= f.submit 'ボタン', class: 'btn-primary' %>
-<% end %>
-</div>
+<%= render 'article_form', article: @article %>
