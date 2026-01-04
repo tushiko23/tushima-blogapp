@@ -1,0 +1,10 @@
+.container
+  - article.errors.full_messages.each do |message|
+    %ul
+      %li= message
+  = form_with model: article, local: true do |f|
+    %div= f.label :title, 'タイトル'
+    %div= f.text_field :title
+    %div= f.label :content, '内容'
+    %div= f.text_area :content
+    = f.submit 'ボタン', class: 'btn-primary'
