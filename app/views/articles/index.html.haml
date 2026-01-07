@@ -2,5 +2,11 @@
   = render 'tabs'
   - @articles.each do |article|
     = render 'articles', article: article
-Footer
-© 2025 GitHub, Inc.
+= link_to new_article_path do
+  .float_btn
+    %i.fa.fa-plus
+
+%footer  
+  .footer-container
+    Footer
+    © 2025 GitHub, Inc.
