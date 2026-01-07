@@ -22,8 +22,6 @@ class Article < ApplicationRecord
   validates :content, length: { minimum: 10 }
   validates :content, uniqueness: true
 
-  validate :title_length_and_content_length
-
   def author_name
     user.display_name
   end
@@ -32,10 +30,4 @@ class Article < ApplicationRecord
     I18n.l(self.created_at, format: :default)
   end
 
-  def title_length_and_content_length
-    char_length = self.title.length + self.content.length
-    unless char_length > 100
-      errors.add(:content, 'タイトルと内容合わせて100字以上で入力だよ')
-    end
-  end
 end
