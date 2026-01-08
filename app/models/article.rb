@@ -15,6 +15,7 @@
 #
 class Article < ApplicationRecord
   belongs_to :user
+  has_many  :comments, dependent: :destroy
   validates :title, presence: true
   validates :title, length: { minimum: 2 }
   validates :title, format: { with: /\A(?!\@)/ }
