@@ -1,9 +1,9 @@
 .container
-  - %comment.errors.full_messages.each do |message|
+  - @comment.errors.full_messages.each do |message|
     %ul
       %li= message
 
-  = form_with model: Comment, url: article_comments_path, method: 'post', local: true do |f|
+  = form_with model: @comment, url: article_comments_path, method: 'post', local: true do |f|
     %div= f.label :content, 'コメント'
     %div= f.text_area :content 
     = f.submit 'ボタン', class: 'btn-primary'

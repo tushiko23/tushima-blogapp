@@ -1,7 +1,7 @@
 .container
   = render 'tabs'
   - @articles.each do |article|
-    = render 'articles', article: article
+    = render 'commons/articles', article: article
 = link_to new_article_path do
   .float_btn
     %i.fa.fa-plus
