@@ -8,7 +8,7 @@
     %div= f.label :introduction, '自己紹介'
     %div= f.text_area :introduction
     %div= f.label :gender, '性別'
-    %div= f.select :gender, Profile.genders.keys, {}, {class: 'text'}
+    %div= f.select :gender, Profile.genders.map { |k, v| [I18n.t("enums.genders.#{k}"), k] }, {}, {class: 'text'}
     %div= f.label :birthday, '生年月日' 
     %div= f.date_field :birthday, class: 'text'
     %div
