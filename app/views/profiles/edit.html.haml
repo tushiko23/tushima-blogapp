@@ -3,6 +3,8 @@
     %ul
       %li= message
   = form_with model: @profile, url: profile_path, method: 'put', local: true do |f|
+    %div= f.label :avatar, 'プロフィール画像'
+    %div= f.file_field :avatar
     %div= f.label :nickname, 'ハンドルネーム'
     %div= f.text_field :nickname
     %div= f.label :introduction, '自己紹介'
