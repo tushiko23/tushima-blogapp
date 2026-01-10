@@ -24,7 +24,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  delegate :birthday, :gender, to: :profile, allow_nil: :true
+  delegate :birthday, :gender, :age, to: :profile, allow_nil: :true
 
   def has_written?(article)
     articles.exists?(id: article.id)
