@@ -24,12 +24,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  delegate :birthday, :gender, to: :profile, allow_nil: :true
+
   def has_written?(article)
     articles.exists?(id: article.id)
   end
 
   def display_name
-    self.email.split('@').first
+    profile&.nickname || self.email.split('@').first
   end
 
   def prepare_profile
